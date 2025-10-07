@@ -1,5 +1,7 @@
 # Laravel DDEV Setup Script
 
+## WARNING!: This was created on mac it might not work on Windows or Linux
+
 This repository contains a Bash script to automate the setup of a new Laravel project using **DDEV**. It installs Laravel, Node dependencies, Tailwind CSS, Prettier, and sets up extra DDEV web ports. The script is modular and provides color-coded logging.
 
 ---
@@ -14,6 +16,7 @@ Make sure the following tools are installed on your host machine:
 - `open` (macOS) or equivalent
 - `lsof`
 
+If these are missing the script stops running.
 ---
 
 ## Usage
