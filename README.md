@@ -30,7 +30,7 @@ cd laravel-setup && chmod +x setup_laravel.sh
 2. **Run the setup script**:
 
 ```bash
-BASE_DIR=/path/to/projects PROJECT_NAME=my-custom-app ./setup.sh
+BASE_DIR=/path/to/projects PROJECT_NAME=my-custom-app setup_laravel.sh
 ```
 
 3. **Optional: To format with Prettier plugin run this inside your project files**:
