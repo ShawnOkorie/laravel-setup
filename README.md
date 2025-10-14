@@ -24,7 +24,7 @@ If these are missing the script stops running.
 1. **Go to script directory and make the script executable**:
 
 ```bash
-cd laravel-setup && chmod +x setup.sh
+cd laravel-setup && chmod +x setup_laravel.sh
 ```
 
 2. **Run the setup script**:
