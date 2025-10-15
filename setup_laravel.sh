@@ -146,7 +146,6 @@ install_ide_helpers() {
     ' || fail_step "IDE helper setup failed"
 
     info "Adding helpers script to package.json..."
-    ddev npm pkg set scripts.helpers="php artisan ide-helper:generate && php artisan ide-helper:models && php artisan ide-helper:meta"
     log "Laravel IDE Helper installed and helpers script added."
 }
 
