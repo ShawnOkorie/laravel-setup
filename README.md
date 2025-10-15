@@ -1,6 +1,10 @@
 # Laravel DDEV Setup Script
 
-## WARNING!: This was created on mac it might not work on Windows or Linux
+> **Note:** This setup script was developed and tested on **macOS**.  
+> It should also work on Linux with minor or no modifications.  
+> Windows users may encounter compatibility issues with certain commands (e.g. `open`, file paths, or shell syntax).
+
+---
 
 This repository contains a Bash script to automate the setup of a new Laravel project using **DDEV**. It installs Laravel, Node dependencies, Tailwind CSS, Prettier, and sets up extra DDEV web ports. The script is modular and provides color-coded logging.
 
@@ -33,11 +37,20 @@ cd laravel-setup && chmod +x setup_laravel.sh
 BASE_DIR=/path/to/projects PROJECT_NAME=my-custom-app setup_laravel.sh
 ```
 
-3. **Optional: To format with Prettier plugin run this inside your project files**:
+## QoL Scripts
+
+1. **To format with Prettier plugin run this inside your project files**:
 
 ```bash
 ddev npm run format
 ```
+
+2. **To to update IDE Helpers run this inside your project files**:
+
+```bash
+ddev npm run helpers
+```
+
 
 What the Script Does
 --------------------
@@ -59,6 +72,8 @@ The script performs the following steps:
 7.  **Ensure package.json** – Creates a default package.json if it doesn’t exist.
     
 8.  **Install Node dependencies** – Installs Tailwind CSS, PostCSS, Prettier, and related plugins.
+
+9. **Install Laravel IDE Helper** - Installs the [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) package
     
 9.  **Append DDEV extra web ports** – Adds extra ports for Node/Vite if not already present.
     

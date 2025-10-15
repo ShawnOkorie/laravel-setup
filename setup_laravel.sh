@@ -135,6 +135,21 @@ install_node_dependencies() {
     log "Node dependencies installed."
 }
 
+install_ide_helpers() {
+    info "Installing Laravel IDE Helper package..."
+    ddev exec bash -c '
+        cd /var/www/html
+        composer require --dev barryvdh/laravel-ide-helper
+        php artisan ide-helper:generate
+        php artisan ide-helper:models --nowrite
+        php artisan ide-helper:meta
+    ' || fail_step "IDE helper setup failed"
+
+    info "Adding helpers script to package.json..."
+    ddev npm pkg set scripts.helpers="php artisan ide-helper:generate && php artisan ide-helper:models && php artisan ide-helper:meta"
+    log "Laravel IDE Helper installed and helpers script added."
+}
+
 append_ddev_ports() {
     info "Appending DDEV extra web ports at the end of config.yaml..."
     cat <<EOF >> .ddev/config.yaml
@@ -183,9 +198,11 @@ install_container_tools
 install_laravel
 ensure_package_json
 install_node_dependencies
+install_ide_helpers
 append_ddev_ports
 replace_vite_config
 apply_patches "$PATCH_DIR/prettierrc.patch"
 ddev npm pkg set scripts.format="npx prettier --write resources/"
+ddev npm pkg set scripts.helpers="php artisan ide-helper:generate && php artisan ide-helper:models && php artisan ide-helper:meta"
 final_cleanup
 log "Project setup complete."
